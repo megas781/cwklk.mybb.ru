@@ -1,0 +1,8 @@
+#pun-crumbs1 {
+  font-style: italic;
+
+  //Убираем надпись "Вы здесь"
+  p strong:first-child {
+    display: none;
+  }
+}

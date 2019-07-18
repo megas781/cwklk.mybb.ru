@@ -5,7 +5,7 @@
 
 $darkBeige: #B2988B;
 $brown: #3E291F;
-$whiteLite: #eae9e4;
+$whiteLite: #DFD3CD;
 
 body {
   margin: 0;
@@ -19,5 +19,19 @@ body {
 #pun_wrap {
   width: 960px;
   margin: 0 auto;
-  background-color: #B2988B;
+  background-color: $darkBeige;
+}
+.section {
+  background-color: $darkBeige;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.section > h2 {
+  display: none;
+}
+.divider {
+  display: none;
 }
