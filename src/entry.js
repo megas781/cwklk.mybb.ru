@@ -1,2 +1,2 @@
-require('./style/compose.css');
-require('./style_cs/compose_cs.css');
+require('./style/compose.scss');
+require('./style_cs/compose_cs.scss');

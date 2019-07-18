@@ -12,7 +12,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/,
+                test: /\.scss$/,
                 use: [
                     cssPlugin.loader,
                     {
@@ -27,6 +27,9 @@ module.exports = {
                             // }
                             url: false
                         }
+                    },
+                    {
+                        loader: 'sass-loader'
                     }
                 ]
             }
