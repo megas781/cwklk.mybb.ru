@@ -1,3 +1,27 @@
+$topBarWidth: 320px;
+
+$newsTextContainerHeight: 130px;
+
+
 #pun-announcement {
-  display: none;
+
+  // Прячем кучу всего ненужного в announcement'e
+  //height: 0;
+}
+
+#pun-announcement table {
+
+  //td {
+  //  display: none;
+  //}
+
+  //Для гостей
+  tr:nth-child(1) td:nth-child(1) {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+
 }

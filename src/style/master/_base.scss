@@ -26,6 +26,7 @@ a {
   margin: 0 auto;
   background-color: $darkBeige;
   margin-bottom: 32px;
+  position: relative;
 }
 #pun-index::after {
   content: '';
