@@ -1,0 +1,31 @@
+#pun-navlinks {
+
+  font-size: 20px;
+  background-color: $brown;
+
+  h2 {
+    display: none;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-style: italic;
+  }
+
+  li {
+    padding: 3px 8px;
+  }
+  li:not(:last-child) {
+    border-right: 2px solid $whiteLite;
+  }
+
+  a {
+    text-decoration: none;
+    color: $whiteLite;
+  }
+}
