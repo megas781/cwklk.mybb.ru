@@ -9,7 +9,7 @@
 .category {
 
   h2 {
-    background-color: $whiteLite;
+    background-color: $light;
     font-family: "AO TYPE";
     text-align: center;
     font-size: 40px;
@@ -69,7 +69,7 @@
     z-index: 2;
 
     position: absolute;
-    background-color: $whiteLite;
+    background-color: $light;
   }
 
   td * {
@@ -100,5 +100,34 @@
   .tc3 {
     display: none;
   }
+
+}
+
+//Статистика
+#pun-stats {
+
+  ul {
+    list-style: none;
+    margin: 0;
+  }
+  //.container и ul – это одно и то же
+  .container {
+    //Эх, люлей мне вставят за гриды...
+    display: grid;
+    grid-template-columns: auto auto;
+
+    //Перемещаем "Всего сообщений" под "Всего тем"
+    .item2 {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+    .item3, .item4 {
+      text-align: right;
+    }
+    .item5 {
+      margin-top: 16px;
+      grid-column: span 2;
+    }
+  }
+
 
 }

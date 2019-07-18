@@ -3,9 +3,11 @@
   src: url("http://forumfiles.ru/files/0019/71/cd/68794.ttf");
 }
 
+
 $darkBeige: #B2988B;
 $brown: #3E291F;
-$whiteLite: #DFD3CD;
+$light: #DFD3CD;
+$whiteLite: #eae9e4;
 
 body {
   margin: 0;
@@ -15,11 +17,21 @@ body {
   background-size: contain;
 }
 
+a {
+  //color: $whiteLite;
+}
 
 #pun_wrap {
   width: 960px;
   margin: 0 auto;
   background-color: $darkBeige;
+  margin-bottom: 32px;
+}
+#pun-index::after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
 }
 .section {
   background-color: $darkBeige;

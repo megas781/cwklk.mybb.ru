@@ -21,11 +21,11 @@
     padding: 3px 8px;
   }
   li:not(:last-child) {
-    border-right: 2px solid $whiteLite;
+    border-right: 2px solid $light;
   }
 
   a {
     text-decoration: none;
-    color: $whiteLite;
+    color: $light;
   }
 }
