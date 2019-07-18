@@ -1,0 +1,22 @@
+{
+  "name": "ksyu-kitty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^3.0.0",
+    "webpack": "^4.36.1"
+  },
+  "dependencies": {
+    "mini-css-extract-plugin": "^0.8.0"
+  }
+}
