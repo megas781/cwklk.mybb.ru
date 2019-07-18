@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'AO TYPE';
+  src: url("http://forumfiles.ru/files/0019/71/cd/68794.ttf");
+}
+
+$darkBeige: #B2988B;
+
+body {
+  margin: 0;
+  background-color: #5D514A;
+  font-family: Georgia, serif;
+  background-image: url("assets/body-background.jpg");
+  background-size: contain;
+}
+
+
+#pun_wrap {
+  width: 960px;
+  margin: 0 auto;
+  background-color: #B2988B;
+}

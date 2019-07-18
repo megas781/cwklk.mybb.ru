@@ -1,0 +1,16 @@
+#pun-title {
+  background-image: url("./assets/header-background.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 420px;
+  position: relative;
+
+  .title-logo {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    font-family: 'AO TYPE';
+    color: white;
+    font-size: 80px;
+  }
+}
