@@ -1,5 +1,5 @@
 $whiteLiteTransparent: rgba(234, 233, 228, 0.9);
-$panelWidth: 340px;
+$panelWidth: 320px;
 $leftSpacing: 20px;
 $topSpacing: 20px;
 
@@ -14,6 +14,9 @@ $newsTextContainerHeight: 150px;
   height: 0;
   * {
     box-sizing: border-box;
+  }
+  a, font {
+    user-select: none;
   }
 }
 
@@ -43,14 +46,14 @@ $newsTextContainerHeight: 150px;
   tr:nth-child(1) td:nth-child(2):hover {
     opacity: 0.9;
   }
-
-  //Див текст контейнер внутри новостей форума
   tr:nth-child(1) td:nth-child(2) font {
     display: none;
   }
+  //Див текст контейнер внутри новостей форума
   tr:nth-child(1) td:nth-child(2) > div {
     box-sizing: border-box;
     height: $newsTextContainerHeight !important;
+    margin-bottom: 0 !important;
   }
 
 
@@ -101,11 +104,14 @@ $newsTextContainerHeight: 150px;
     position: absolute;
     top: $topSpacing + $newsTextContainerHeight + $topSpacing + 60px/*администраторы*/ + $topSpacing;
     left: $leftSpacing;
-    background-color: $whiteLiteTransparent;
+    background-color: rgba(234, 233, 228, 1);
     //background-color: #DEDBD2;
     width: $panelWidth !important;
     padding: 0 16px;
     cursor: pointer;
+
+    //выше чем "для игроков
+    z-index: 2;
   }
   //Надпись "для гостей"
   tr:nth-child(1) td:nth-child(1) font {
@@ -123,10 +129,7 @@ $newsTextContainerHeight: 150px;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-
-    //top: $topSpacing + $newsTextContainerHeight + $topSpacing + 60px/*администраторы*/ + $topSpacing;
     top: 0;
-    //left: $leftSpacing + $panelWidth - 46px;
     right: 8px;
   }
   tr:nth-child(1) td:nth-child(1) a {
@@ -137,6 +140,8 @@ $newsTextContainerHeight: 150px;
     text-decoration: none;
     color: inherit;
     display: none;
+    position: relative;
+    //z-index: 1;
   }
   tr:nth-child(1) td:nth-child(1) a:hover {
     text-decoration: underline;
@@ -149,11 +154,14 @@ $newsTextContainerHeight: 150px;
     position: absolute;
     top: $topSpacing + $newsTextContainerHeight + $topSpacing + 60px/*администраторы*/ + $topSpacing + 25px/*для гостей*/ + $topSpacing;
     left: $leftSpacing;
-    background-color: $whiteLiteTransparent;
+    background-color: rgba(234, 233, 228, 1);
     //background-color: #DEDBD2;
     width: $panelWidth !important;
     padding: 0 16px;
     cursor: pointer;
+
+    //ниже чем "для гостей
+    z-index: 1;
   }
   //Надпись "для игроков"
   tr:nth-child(1) td:nth-child(3) font {
@@ -185,6 +193,8 @@ $newsTextContainerHeight: 150px;
     text-decoration: none;
     color: inherit;
     display: none;
+    position: relative;
+    //z-index: 1;
   }
   tr:nth-child(1) td:nth-child(3) a:hover {
     text-decoration: underline;
