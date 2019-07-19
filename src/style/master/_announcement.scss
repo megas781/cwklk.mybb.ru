@@ -1,27 +1,94 @@
-$topBarWidth: 320px;
+$whiteLiteTransparent: rgba(234, 233, 228, 0.5);
+$panelWidth: 340px;
+$leftSpacing: 20px;
+$topSpacing: 20px;
 
-$newsTextContainerHeight: 130px;
+$newsTextContainerHeight: 150px;
 
 
 #pun-announcement {
 
   // Прячем кучу всего ненужного в announcement'e
   //height: 0;
+  * {
+    box-sizing: border-box;
+  }
 }
 
 #pun-announcement table {
 
-  //td {
-  //  display: none;
-  //}
+  td {
+    //display: none;
+    //box-sizing: border-box;
+  }
 
   //Для гостей
   tr:nth-child(1) td:nth-child(1) {
     display: block;
     position: absolute;
     top: 20px;
-    left: 20px;
+    left: $leftSpacing + $panelWidth;
+    background-color: $whiteLiteTransparent;
+    width: $panelWidth !important;
+  }
+
+  //Для игроков
+  tr:nth-child(1) td:nth-child(3) {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: $whiteLiteTransparent;
+    width: $panelWidth !important;
+  }
+
+  //Новости форума
+  tr:nth-child(1) td:nth-child(2) {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: $leftSpacing;
+    background-color: $whiteLiteTransparent;
+    width: $panelWidth !important;
+  }
+
+  //Див текст контейнер внутри новостей форума
+  tr:nth-child(1) td:nth-child(2) font {
+    display: none;
+  }
+  tr:nth-child(1) td:nth-child(2) > div {
+    box-sizing: border-box;
+    height: $newsTextContainerHeight !important;
   }
 
 
+  //Администраторы
+  tr:nth-child(3) td:nth-child(1) {
+    display: block;
+    position: absolute;
+    left: $leftSpacing;
+    top: $topSpacing + $newsTextContainerHeight + $topSpacing;
+    width: $panelWidth !important;
+    background-color: $whiteLiteTransparent;
+
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-around;
+    padding: 3px;
+  }
+  tr:nth-child(3) td:nth-child(1) font {
+    display: none;
+  }
+  tr:nth-child(3) td:nth-child(1) br {
+    display: none;
+  }
+  tr:nth-child(3) td:nth-child(1) a {
+    display: block;
+  }
+  tr:nth-child(3) td:nth-child(1) img {
+    display: block;
+    height: 60px;
+    width: 60px;
+  }
 }
