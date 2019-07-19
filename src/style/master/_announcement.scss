@@ -1,11 +1,9 @@
 $whiteLiteTransparent: rgba(234, 233, 228, 0.9);
-$panelWidth: 320px;
+$panelWidth: 274px;
 $leftSpacing: 20px;
 $topSpacing: 20px;
 
-
-
-$newsTextContainerHeight: 150px;
+$newsTextContainerHeight: 136px;
 
 
 #pun-announcement {
@@ -97,106 +95,72 @@ $newsTextContainerHeight: 150px;
   }
 
 
-  //Для гостей
-  tr:nth-child(1) td:nth-child(1) {
+  //Абстрактный класс для навигации
+  %panel-nav {
     text-align: left;
+    text-transform: lowercase;
     display: block;
     position: absolute;
-    top: $topSpacing + $newsTextContainerHeight + $topSpacing + 60px/*администраторы*/ + $topSpacing;
     left: $leftSpacing;
     background-color: rgba(234, 233, 228, 1);
-    //background-color: #DEDBD2;
     width: $panelWidth !important;
     padding: 0 16px;
     cursor: pointer;
+  }
+  %panel-nav::before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    background-image: url(http://forumfiles.ru/files/0019/71/cd/38838.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 0;
+    right: 8px;
+  }
+  %panel-nav__button {
+    display: block;
+    padding: 3px;
+    font-weight: normal !important;
+  }
+  %panel-nav__link {
+    padding-left: 16px;
+    display: block;
+    font-style: italic;
+    text-decoration: none;
+    color: inherit;
+    display: none;
+    position: relative;
+    margin: 4px 0;
+  }
+  %panel-nav__link:hover {
+    text-decoration: underline;
+  }
 
+  //Для гостей
+  tr:nth-child(1) td:nth-child(1) {
+    @extend %panel-nav;
+    top: $topSpacing + $newsTextContainerHeight + $topSpacing + 60px/*администраторы*/ + $topSpacing;
     //выше чем "для игроков
     z-index: 2;
   }
-  //Надпись "для гостей"
-  tr:nth-child(1) td:nth-child(1) font {
-    display: block;
-    padding: 3px;
-    font-weight: normal !important;
-  }
-  tr:nth-child(1) td:nth-child(1)::before {
-    content: '';
-    display: block;
-    position: absolute;
-    height: 25px;
-    width: 25px;
-    background-image: url(http://forumfiles.ru/files/0019/71/cd/38838.svg);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    top: 0;
-    right: 8px;
-  }
-  tr:nth-child(1) td:nth-child(1) a {
-    padding-left: 16px;
-    display: block;
-    //text-align: left;
-    font-style: italic;
-    text-decoration: none;
-    color: inherit;
-    display: none;
-    position: relative;
-    //z-index: 1;
-  }
-  tr:nth-child(1) td:nth-child(1) a:hover {
-    text-decoration: underline;
-  }
-
   //Для игроков
   tr:nth-child(1) td:nth-child(3) {
-    text-align: left;
-    display: block;
-    position: absolute;
-    top: $topSpacing + $newsTextContainerHeight + $topSpacing + 60px/*администраторы*/ + $topSpacing + 25px/*для гостей*/ + $topSpacing;
-    left: $leftSpacing;
-    background-color: rgba(234, 233, 228, 1);
-    //background-color: #DEDBD2;
-    width: $panelWidth !important;
-    padding: 0 16px;
-    cursor: pointer;
-
+    @extend %panel-nav;
     //ниже чем "для гостей
     z-index: 1;
+    top: $topSpacing + $newsTextContainerHeight + $topSpacing + 60px/*администраторы*/ + $topSpacing + 25px/*для гостей*/ + $topSpacing;
   }
-  //Надпись "для игроков"
-  tr:nth-child(1) td:nth-child(3) font {
-    display: block;
-    padding: 3px;
-    font-weight: normal !important;
+  //Кнопки "для гостей" и "для игроков"
+  tr:nth-child(1) td:nth-child(1) font, tr:nth-child(1) td:nth-child(3) font {
+    @extend %panel-nav__button;
   }
-  tr:nth-child(1) td:nth-child(3)::before {
-    content: '';
-    display: block;
-    position: absolute;
-    height: 25px;
-    width: 25px;
-    background-image: url(http://forumfiles.ru/files/0019/71/cd/38838.svg);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+  //Пункты навигации для гостей и игроков
+  tr:nth-child(1) td:nth-child(1) a, tr:nth-child(1) td:nth-child(3) a {
+    @extend %panel-nav__link;
+  }
 
-    //top: $topSpacing + $newsTextContainerHeight + $topSpacing + 60px/*администраторы*/ + $topSpacing;
-    top: 0;
-    //left: $leftSpacing + $panelWidth - 46px;
-    right: 8px;
-  }
-  tr:nth-child(1) td:nth-child(3) a {
-    padding-left: 16px;
-    display: block;
-    //text-align: left;
-    font-style: italic;
-    text-decoration: none;
-    color: inherit;
-    display: none;
-    position: relative;
-    //z-index: 1;
-  }
-  tr:nth-child(1) td:nth-child(3) a:hover {
-    text-decoration: underline;
-  }
+
 }
