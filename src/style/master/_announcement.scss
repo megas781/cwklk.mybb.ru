@@ -1,7 +1,9 @@
-$whiteLiteTransparent: rgba(234, 233, 228, 0.5);
+$whiteLiteTransparent: rgba(234, 233, 228, 0.9);
 $panelWidth: 340px;
 $leftSpacing: 20px;
 $topSpacing: 20px;
+
+
 
 $newsTextContainerHeight: 150px;
 
@@ -9,7 +11,7 @@ $newsTextContainerHeight: 150px;
 #pun-announcement {
 
   // Прячем кучу всего ненужного в announcement'e
-  //height: 0;
+  height: 0;
   * {
     box-sizing: border-box;
   }
@@ -18,28 +20,10 @@ $newsTextContainerHeight: 150px;
 #pun-announcement table {
 
   td {
-    //display: none;
-    //box-sizing: border-box;
+    display: none;
   }
-
-  //Для гостей
-  tr:nth-child(1) td:nth-child(1) {
-    display: block;
-    position: absolute;
-    top: 20px;
-    left: $leftSpacing + $panelWidth;
-    background-color: $whiteLiteTransparent;
-    width: $panelWidth !important;
-  }
-
-  //Для игроков
-  tr:nth-child(1) td:nth-child(3) {
-    display: block;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: $whiteLiteTransparent;
-    width: $panelWidth !important;
+  br {
+    display: none;
   }
 
   //Новости форума
@@ -50,6 +34,14 @@ $newsTextContainerHeight: 150px;
     left: $leftSpacing;
     background-color: $whiteLiteTransparent;
     width: $panelWidth !important;
+    opacity: 0.65;
+    transition: opacity $duration;
+    br {
+      display: inline-block;
+    }
+  }
+  tr:nth-child(1) td:nth-child(2):hover {
+    opacity: 0.9;
   }
 
   //Див текст контейнер внутри новостей форума
@@ -69,7 +61,9 @@ $newsTextContainerHeight: 150px;
     left: $leftSpacing;
     top: $topSpacing + $newsTextContainerHeight + $topSpacing;
     width: $panelWidth !important;
-    background-color: $whiteLiteTransparent;
+    background-color: rgba(234, 233, 228, 0.65);
+
+    transition: background-color $duration;
 
     display: flex;
     flex-direction: row;
@@ -77,10 +71,10 @@ $newsTextContainerHeight: 150px;
     justify-content: space-around;
     padding: 3px;
   }
-  tr:nth-child(3) td:nth-child(1) font {
-    display: none;
+  tr:nth-child(3) td:nth-child(1):hover {
+    background-color: rgba(234, 233, 228, 0.8);
   }
-  tr:nth-child(3) td:nth-child(1) br {
+  tr:nth-child(3) td:nth-child(1) font {
     display: none;
   }
   tr:nth-child(3) td:nth-child(1) a {
@@ -90,5 +84,109 @@ $newsTextContainerHeight: 150px;
     display: block;
     height: 60px;
     width: 60px;
+    opacity: 0.6;
+    transition-property: opacity, transform;
+    transition-duration: $duration;
+  }
+  tr:nth-child(3) td:nth-child(1) img:hover {
+    opacity: 1;
+    transform: scale(1.09);
+  }
+
+
+  //Для гостей
+  tr:nth-child(1) td:nth-child(1) {
+    text-align: left;
+    display: block;
+    position: absolute;
+    top: $topSpacing + $newsTextContainerHeight + $topSpacing + 60px/*администраторы*/ + $topSpacing;
+    left: $leftSpacing;
+    background-color: $whiteLiteTransparent;
+    //background-color: #DEDBD2;
+    width: $panelWidth !important;
+    padding: 0 16px;
+    cursor: pointer;
+  }
+  //Надпись "для гостей"
+  tr:nth-child(1) td:nth-child(1) font {
+    display: block;
+    padding: 3px;
+    font-weight: normal !important;
+  }
+  tr:nth-child(1) td:nth-child(1)::before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    background-image: url(http://forumfiles.ru/files/0019/71/cd/38838.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    //top: $topSpacing + $newsTextContainerHeight + $topSpacing + 60px/*администраторы*/ + $topSpacing;
+    top: 0;
+    //left: $leftSpacing + $panelWidth - 46px;
+    right: 8px;
+  }
+  tr:nth-child(1) td:nth-child(1) a {
+    padding-left: 16px;
+    display: block;
+    //text-align: left;
+    font-style: italic;
+    text-decoration: none;
+    color: inherit;
+    display: none;
+  }
+  tr:nth-child(1) td:nth-child(1) a:hover {
+    text-decoration: underline;
+  }
+
+  //Для игроков
+  tr:nth-child(1) td:nth-child(3) {
+    text-align: left;
+    display: block;
+    position: absolute;
+    top: $topSpacing + $newsTextContainerHeight + $topSpacing + 60px/*администраторы*/ + $topSpacing + 25px/*для гостей*/ + $topSpacing;
+    left: $leftSpacing;
+    background-color: $whiteLiteTransparent;
+    //background-color: #DEDBD2;
+    width: $panelWidth !important;
+    padding: 0 16px;
+    cursor: pointer;
+  }
+  //Надпись "для игроков"
+  tr:nth-child(1) td:nth-child(3) font {
+    display: block;
+    padding: 3px;
+    font-weight: normal !important;
+  }
+  tr:nth-child(1) td:nth-child(3)::before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    background-image: url(http://forumfiles.ru/files/0019/71/cd/38838.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    //top: $topSpacing + $newsTextContainerHeight + $topSpacing + 60px/*администраторы*/ + $topSpacing;
+    top: 0;
+    //left: $leftSpacing + $panelWidth - 46px;
+    right: 8px;
+  }
+  tr:nth-child(1) td:nth-child(3) a {
+    padding-left: 16px;
+    display: block;
+    //text-align: left;
+    font-style: italic;
+    text-decoration: none;
+    color: inherit;
+    display: none;
+  }
+  tr:nth-child(1) td:nth-child(3) a:hover {
+    text-decoration: underline;
   }
 }
